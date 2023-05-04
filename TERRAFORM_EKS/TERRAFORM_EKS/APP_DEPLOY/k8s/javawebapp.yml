@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javawebapp-deployment
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: java
+  template:
+    metadata:
+      labels:
+        app: java
+    spec:
+      containers:
+      - name: javawebapp
+        image: hassansaeed/java_app_cicd:12
+        resources:
+          requests:
+            cpu: "1"
